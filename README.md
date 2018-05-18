@@ -1,2 +1,2 @@
 # registPage
-Using for the Mycoin regist.
+Using for the Mycoin regist page.
