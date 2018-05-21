@@ -1,5 +1,6 @@
 let $ = require("jquery");
 import { showErrorMsg, sendAjax } from "./common";
+import { API } from "../../config/config";
 
 import "normalize.css";
 import "../css/index.css";
@@ -23,7 +24,21 @@ $(function () {
         }
 
         sendAjax({
-            url: "abc",
+            url: `${API}/v3/sms`,
+            method: "post",
+            data: {
+                countryCode: 86,
+                mobile
+            },
+            beforeSend() {
+
+            },
+            complete() {
+
+            },
+            success(result) {
+                console.log(result);
+            },
             error: function (e) {
                 console.log(e.statusText);
                 errorMsgMobile.msgShow(e.statusText);
@@ -59,19 +74,25 @@ $(function () {
             return;
         }
 
-        window.location.href = "/path";
         sendAjax({
-            url: "/abc",
+            url: `${API}/v3/auth`,
             method: "post",
             data: {
-                mobile: mobile,
-                code: code
+                mobile,
+                code,
+                authType: "sms",
+                countryCode: 86
             },
             success: function (result) {
-
+                if (result.code != 0) {
+                    errorMsgCode.msgShow(result.message);
+                    return;
+                }
+                window.location.href = `/path.html?${result.data.uid}${result.data.token}`;
             },
             error: function (e) {
-
+                console.log(e.statusText);
+                errorMsgMobile.msgShow(e.statusText);
             }
         })
     });

@@ -18,18 +18,18 @@ module.exports = {
         }),
         new htmlWebpackPlugin({
             title: "Index Two",
-            filename: "./two.html",
-            template: "./two.html"
+            filename: "./path.html",
+            template: "./path.html"
         }),
         new htmlWebpackPlugin({
             title: "Index Three",
-            filename: "./three.html",
-            template: "./three.html"
+            filename: "./result.html",
+            template: "./result.html"
         }),
-        new uglifyJsPlugin()
+        // new uglifyJsPlugin()
     ],
     devtool: "inline-source-map",
-    mode: "production",
+    mode: "development",
     module: {
         rules: [
             {
