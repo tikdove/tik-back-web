@@ -5,6 +5,10 @@ const uglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
     entry: ["./src/js/index.js", "./src/js/two.js"],
+    entry: {
+        index: "./src/js/index.js",
+        two: "./src/js/two.js"
+    },
     output: {
         filename: "[name].bundle.js",
         path: path.resolve(__dirname, "dist")
@@ -24,7 +28,20 @@ module.exports = {
         new htmlWebpackPlugin({
             title: "Index Three",
             filename: "./result.html",
-            template: "./result.html"
+            // template: "./result.html",
+
+
+
+            "files": {
+                "css": ["main.css"],
+                "js": ["dist/two.bundle.js"],
+                "chunks": {
+                    "main": {
+                        "entry": "dist/two.bundle.js",
+                        "css": []
+                    },
+                }
+            }
         }),
         // new uglifyJsPlugin()
     ],

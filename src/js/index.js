@@ -88,7 +88,7 @@ $(function () {
                     errorMsgCode.msgShow(result.message);
                     return;
                 }
-                window.location.href = `/path.html?${result.data.uid}${result.data.token}`;
+                window.location.href = `/path.html?${result.data.uid}_${result.data.token}`;
             },
             error: function (e) {
                 console.log(e.statusText);

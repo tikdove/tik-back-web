@@ -19,12 +19,12 @@ app.use(async (ctx, next) => {
 
 app.use(static("./dist"));
 
-let proxy = httpProxy.createProxyServer({});
+/* let proxy = httpProxy.createProxyServer({});
 let config = require("./config/config.json");
 app.use(async function (ctx, next) {
     ctx.respond = false;
     proxy.web(ctx.req, ctx.res, { target: config.API });
-});
+}); */
 
 const http = require("http");
 
