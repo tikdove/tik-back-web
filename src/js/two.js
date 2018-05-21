@@ -17,7 +17,7 @@ $(function () {
             return;
         }
 
-        location.href = "/three";
+        location.href = "/result";
 
         sendAjax({
             url: "/gg",

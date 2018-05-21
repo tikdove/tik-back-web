@@ -59,7 +59,7 @@ $(function () {
             return;
         }
 
-        window.location.href = "/two";
+        window.location.href = "/path";
         sendAjax({
             url: "/abc",
             method: "post",
