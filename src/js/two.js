@@ -15,9 +15,6 @@ if (location.href.indexOf("path.html") > -1) {
     sendAjax({
         url: `${API}/v3/remaining`,
         headers: {
-            // uid: "5b025abd3a9b2f0022c437d0",
-            // "5b025abd3a9b2f0022c437d0 9649b0326d1a401150cad90434abc3c3"
-
             authorization: token
         },
         success(result) {
@@ -42,7 +39,6 @@ if (location.href.indexOf("path.html") > -1) {
 }
 
 
-
 // 显示两个参数，决定是否可以提交
 
 var errorMsgMobile = showErrorMsg("errorMsgMobile");
@@ -52,7 +48,6 @@ $("#sendBtn").on("click", function () {
         errorMsgMobile.msgShow("钱包地址错误，请核对提交");
         return;
     }
-
 
     sendAjax({
         url: `${API}/v3/wallet`,
@@ -77,9 +72,12 @@ $("#sendBtn").on("click", function () {
     })
 });
 
-
 /* result.html */
-if (location.href.indexOf("result.html") > 0 && token) {
+if (location.href.indexOf("result.html") > 0) {
+    if (!token) {
+        alert("token不存在");
+    }
+
     sendAjax({
         url: `${API}/v3/user_profile`,
         headers: {

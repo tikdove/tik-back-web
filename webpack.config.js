@@ -28,22 +28,19 @@ module.exports = {
         new htmlWebpackPlugin({
             title: "Index Three",
             filename: "./result.html",
-            // template: "./result.html",
-
-
-
-            "files": {
-                "css": ["main.css"],
-                "js": ["dist/two.bundle.js"],
-                "chunks": {
-                    "main": {
-                        "entry": "dist/two.bundle.js",
-                        "css": []
-                    },
-                }
-            }
+            template: "./result.html",
+            // "files": {
+            //     "css": ["main.css"],
+            //     "js": ["dist/two.bundle.js"],
+            //     "chunks": {
+            //         "main": {
+            //             "entry": "dist/two.bundle.js",
+            //             "css": []
+            //         },
+            //     },
+            // }
         }),
-        // new uglifyJsPlugin()
+        new uglifyJsPlugin()
     ],
     devtool: "inline-source-map",
     mode: "development",
