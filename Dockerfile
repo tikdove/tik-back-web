@@ -1,11 +1,5 @@
-FROM node:9.11.1
+FROM nginx:latest
 
-ADD package.json /app/
+COPY ./dist/ /usr/share/nginx/html
 
-WORKDIR /app
-
-RUN npm install
-
-ADD . /app
-
-CMD ["node", "server.js"]
+CMD ["nginx","-g","daemon off;"]
