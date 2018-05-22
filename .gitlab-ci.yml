@@ -1,6 +1,6 @@
 cache:
     untracked: true
-    key: ${CI_COMMIT_REF_SLUG}
+    key: cache_${CI_COMMIT_REF_SLUG}
 stages:
   - build
   - deploy
@@ -16,6 +16,7 @@ job_build_2:
   stage: build
   image: gitlab/dind
   script:
+    - du -sh *
     - docker build -t register-page:1.0.0 .
     
 
