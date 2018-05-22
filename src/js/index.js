@@ -45,7 +45,7 @@ $(function () {
             }
         })
 
-        var times = 10, _this = $(this);
+        var times = 60, _this = $(this);
         _this.addClass("regist-code-disable");
         _this.html(times-- + 's');
         isSendCode = setInterval(function () {
