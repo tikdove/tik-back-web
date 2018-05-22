@@ -60,7 +60,7 @@ $("#sendBtn").on("click", function () {
         },
         success: function (result) {
             if (result.code == 0) {
-                // location.href = "/result.html" + location.search;
+                location.href = "/result.html" + location.search;
             } else {
                 alert(result.message);
             }
@@ -84,7 +84,11 @@ if (location.href.indexOf("result.html") > 0) {
             authorization: token
         },
         success(result) {
-            console.log(11111, result);
+            if (result.code == 0) {
+                $("#personalID").html(result.data.inviteCode);
+            } else {
+                alert(result.message);
+            }
         },
         error(e) {
             console.log(4444, e);
