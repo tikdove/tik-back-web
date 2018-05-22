@@ -1,5 +1,5 @@
 let koa = require("koa");
-let static = require("koa-static");
+let staticKoa = require("koa-static");
 let app = new koa();
 let httpProxy = require("http-proxy");
 
@@ -17,7 +17,7 @@ app.use(async (ctx, next) => {
     console.log("%s %s - %sms", ctx.method, ctx.url, ms);
 });
 
-app.use(static("./dist"));
+app.use(staticKoa("./dist"));
 
 /* let proxy = httpProxy.createProxyServer({});
 let config = require("./config/config.json");
