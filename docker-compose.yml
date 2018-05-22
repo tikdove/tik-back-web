@@ -1,0 +1,6 @@
+version: '2'
+services:
+  register-page:
+    image: register-page:1.0.0
+    stdin_open: true
+    tty: true
