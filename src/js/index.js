@@ -8,7 +8,7 @@ import "../css/index.css";
 $(function () {
 
     var errorMsgMobile = showErrorMsg('errorMsgMobile');
-    var errorMsgCode = showErrorMsg("showErrorMsg");
+    var errorMsgCode = showErrorMsg("errorMsgCode");
 
     var isSendCode = null;
     $("#sendCode").on("click", function (e) {
@@ -70,6 +70,7 @@ $(function () {
         }
 
         if (!code) {
+            console.log("code not right");
             errorMsgCode.msgShow("请输入验证码");
             return;
         }

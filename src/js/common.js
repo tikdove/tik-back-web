@@ -4,6 +4,7 @@ export function sendAjax(options) {
     $.ajax({
         url: options.url,
         dataType: "json",
+        // contentType: "application/json; charset=utf-8",
         headers: options.headers,
         type: options.method || "get",
         data: options.data,
@@ -20,7 +21,7 @@ export function showErrorMsg(id) {
         ele.html(msg).show();
         setTimeout(function () {
             ele.fadeOut(300);
-        }, 1500);
+        }, 2000);
     }
 
     return ele;
