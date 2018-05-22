@@ -1,6 +1,6 @@
 cache:
     untracked: true
-    key: ${CI_COMMIT_REF_SLUG}
+    key: cache_${CI_COMMIT_REF_SLUG}
 stages:
   - build
   - deploy
