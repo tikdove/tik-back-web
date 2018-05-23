@@ -1,7 +1,6 @@
 let koa = require("koa");
 let staticKoa = require("koa-static");
 let app = new koa();
-let httpProxy = require("http-proxy");
 
 app.use(async (ctx, next) => {
     let start = new Date;
@@ -19,7 +18,9 @@ app.use(async (ctx, next) => {
 
 app.use(staticKoa("./dist"));
 
-/* let proxy = httpProxy.createProxyServer({});
+/* 
+let httpProxy = require("http-proxy");
+let proxy = httpProxy.createProxyServer({});
 let config = require("./config/config.json");
 app.use(async function (ctx, next) {
     ctx.respond = false;
