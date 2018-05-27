@@ -16,8 +16,7 @@ job_build_2:
   stage: build
   image: gitlab/dind
   script:
-    - du -sh *
-    - docker build -t register-page:1.0.0 .
+    - docker build -t tikcoin-page:1.0.0 .
     
 
 job_deploy:
@@ -25,4 +24,4 @@ job_deploy:
   image: registry.cn-hangzhou.aliyuncs.com/dev_tool/rancher-cli
   script:
     - rm -f ~/.rancher/cli.json
-    - rancher --url http://172.20.160.7:8080/v2-beta --access-key 3F9EAEABA64D4876F506 --secret-key vyg17c8244obWeB8HoSGeeHVg54LGdTWMVj4yU6V up -d  --pull --force-upgrade --confirm-upgrade --stack mycoin-register-page-1.0.0
+    - rancher --url http://172.20.160.7:8080/v2-beta --access-key 3F9EAEABA64D4876F506 --secret-key vyg17c8244obWeB8HoSGeeHVg54LGdTWMVj4yU6V up -d  --pull --force-upgrade --confirm-upgrade --stack tikcoin-page-1.0.0
