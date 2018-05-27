@@ -1,0 +1,23 @@
+/*
+ * @Author: Mr.He 
+ * @Date: 2018-05-27 16:23:09 
+ * @Last Modified by: Mr.He
+ * @Last Modified time: 2018-05-27 16:39:57
+ */
+
+
+.historyTrade h2{
+    color: #fff;
+    font-size: 40px;
+    text-align: center;
+    height: 45px;
+    padding-top: 100px;
+    margin-bottom: -145px;
+    position: relative;
+    z-index: 2;
+}
+.historyTrade img{
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+}

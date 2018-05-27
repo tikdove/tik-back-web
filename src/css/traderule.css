@@ -1,0 +1,21 @@
+/*
+ * @Author: Mr.He 
+ * @Date: 2018-05-27 15:13:18 
+ * @Last Modified by: Mr.He
+ * @Last Modified time: 2018-05-27 15:23:28
+ */
+
+
+.traderule{
+    padding-top: 80px;
+}
+.traderule h2{
+    text-align: center;
+    font-size: 32px;
+}
+.traderule img{
+    display: block;
+    margin: 0 auto;
+    width: 1290px;
+    height: auto;
+}

@@ -4,7 +4,7 @@ const cleanWebpackPlugin = require("clean-webpack-plugin");
 const uglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
-    entry: ["./src/js/index.js", "./src/js/two.js"],
+    entry: ["./src/js/index.js"],
     /* entry: {
         index: "./src/js/index.js",
         two: "./src/js/two.js"
@@ -19,26 +19,6 @@ module.exports = {
             title: "Index One",
             filename: "./index.html",
             template: "./index.html"
-        }),
-        new htmlWebpackPlugin({
-            title: "Index Two",
-            filename: "./path.html",
-            template: "./path.html"
-        }),
-        new htmlWebpackPlugin({
-            title: "Index Three",
-            filename: "./result.html",
-            template: "./result.html",
-            // "files": {
-            //     "css": ["main.css"],
-            //     "js": ["dist/two.bundle.js"],
-            //     "chunks": {
-            //         "main": {
-            //             "entry": "dist/two.bundle.js",
-            //             "css": []
-            //         },
-            //     },
-            // }
         }),
         new uglifyJsPlugin()
     ],

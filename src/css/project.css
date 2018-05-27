@@ -1,0 +1,19 @@
+/*
+ * @Author: Mr.He 
+ * @Date: 2018-05-27 14:56:11 
+ * @Last Modified by: Mr.He
+ * @Last Modified time: 2018-05-27 15:07:00
+ */
+
+.project{
+    padding: 65px 0 160px;
+}
+.project-title{
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 32px;
+}
+.project-content img{
+    display: block;
+    margin: 0 auto;
+}

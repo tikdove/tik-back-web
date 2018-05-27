@@ -1,0 +1,46 @@
+/*
+ * @Author: Mr.He 
+ * @Date: 2018-05-27 14:10:36 
+ * @Last Modified by: Mr.He
+ * @Last Modified time: 2018-05-27 16:41:14
+ */
+
+.step{
+    background: #F8F9FB;
+    padding-top: 133px;
+    padding-bottom: 160px;
+}
+.step-title{
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+.step-ul{
+    overflow: hidden;
+    margin-right: -30px;
+}
+.step-ul li{
+    float: left;
+    width: 300px;
+    height: 390px;
+    margin-right: 30px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 50px 25px 0;
+    border-radius: 10px;
+}
+.step-ul li img{
+    display: block;
+    margin: 0 auto 30px;
+}
+.step-ul li h4{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+.step-ul li p{
+    font-size: 16px;
+    line-height: 20px;
+    color: #546497;
+    font-family: PingFangSC-Thin;
+}
