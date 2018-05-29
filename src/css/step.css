@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 14:10:36 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-27 18:10:33
+ * @Last Modified time: 2018-05-28 15:03:45
  */
 
 .step{
@@ -17,6 +17,7 @@
 }
 .step-ul{
     overflow: hidden;
+    padding: 30px 0;
     margin-right: -30px;
 }
 .step-ul li{
@@ -29,6 +30,12 @@
     padding: 50px 25px 0;
     border-radius: 10px;
 }
+.step-ul li:hover{
+    background: #FFFFFF;
+    box-shadow: 0 13px 40px 0 rgba(211,211,211,0.37);
+}
+
+
 .step-ul li img{
     display: block;
     margin: 0 auto 30px;

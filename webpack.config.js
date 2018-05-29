@@ -22,7 +22,7 @@ module.exports = {
         }),
         new uglifyJsPlugin()
     ],
-    // devtool: "inline-source-map",
+    devtool: "inline-source-map",
     mode: "production",
     module: {
         rules: [

@@ -2,11 +2,12 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 10:24:47 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-27 17:11:00
+ * @Last Modified time: 2018-05-28 14:58:25
  */
 
 import React, { Component } from "react";
 import "../../css/firstscreen.css";
+import { isMobile } from "../utils/common";
 
 export class FirstScreen extends Component {
     constructor(props) {
@@ -14,13 +15,6 @@ export class FirstScreen extends Component {
         this.state = {
             height: window["innerHeight"] < 760 ? 760 : window["innerHeight"]
         }
-    }
-    componentWillMount() {
-        console.log('componentWillMount');
-        console.log(this.ref);
-    }
-    componentDidMount() {
-        console.log(this.ref);
     }
 
     goDownload() {
@@ -30,8 +24,9 @@ export class FirstScreen extends Component {
 
     render() {
         let currentStyle = {
-            height: this.state.height
+            height: isMobile() ? '' : this.state.height
         }
+
         return (
             <section className="firstScreen" style={currentStyle}>
                 <div className="content pt60">

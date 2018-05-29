@@ -2,12 +2,13 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 10:36:39 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-27 18:10:25
+ * @Last Modified time: 2018-05-28 11:32:56
  */
 
 .firstScreen{
     height: 100%;
-    background: #090;
+    min-height: 740px;
+    background: #ccc;
     color: #fff;
     background: url("../images/bg.png") no-repeat center center;
 }
