@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 10:24:47 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-28 14:58:25
+ * @Last Modified time: 2018-05-29 11:29:07
  */
 
 import React, { Component } from "react";
@@ -44,7 +44,9 @@ export class FirstScreen extends Component {
                             下载app
                         </button>
                     </div>
-                    <div className="span-box">
+                </div>
+                <div className="span-box">
+                    <div className="content">
                         <span>
                             零门槛 <img src={require("../../images/index-icon-1.png")} alt="icon" />
                             <b></b>
