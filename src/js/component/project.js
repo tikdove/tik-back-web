@@ -2,41 +2,50 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 14:53:03 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 11:16:18
+ * @Last Modified time: 2018-05-29 16:45:51
  */
 
 import React, { Component } from "react";
 import "../../css/project.css";
 
+let isShowCard = false;
+let showCard = (eles) => {
+    eles.map((item, index) => {
+        setTimeout(() => {
+            item.className = item.className + " card-show";
+            console.log(index, item.className);
+        }, index * 500)
+    })
+}
 export class ProjectDevelopment extends Component {
-
     componentDidMount() {
-        /* let canvas = this.refs.myCanvas;
-        let ctx = canvas.getContext('2d');
-        ctx.fillStyle = "#fff";
-        ctx.moveTo(0, 50);
-        ctx.lineTo(1200, 50);
-        ctx.strokeStyle = '#D0DDf5';
+        console.log(this.refs);
+        let box = this.refs.projectSection;
+        let cards = [this.refs.cardOne, this.refs.cardTwo, this.refs.cardThree, this.refs.cardFour];
+        window.onscroll = function () {
+            let clientParams = box.getBoundingClientRect();
+            if (clientParams.top < 250 && !isShowCard) {
+                isShowCard = true;
+                showCard(cards);
+            }
+        };
 
-        ctx.beginPath();
-        ctx.arc(240, 50, 10, 0, 2 * Math.PI);
-        ctx.stroke(); */
     }
     render() {
         return (
-            <section className="project">
+            <section ref="projectSection" id="test" className="project">
                 <h2 className="project-title">
-                    项目发展历程
-                    </h2>
+                    项目里程碑
+                </h2>
                 <div className="project-content">
                     <p className="project-line"></p>
-                    <div className="project-box">
+                    <div ref="projectBox" className="project-box">
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
 
-                        <div className="project-card">
+                        <div ref="cardOne" className="project-card">
                             <h5>
                                 December 2017
                             </h5>
@@ -44,7 +53,7 @@ export class ProjectDevelopment extends Component {
                                 idea
                             </p>
                         </div>
-                        <div className="project-card">
+                        <div ref="cardTwo" className="project-card">
                             <h5>
                                 Jan 2018
                             </h5>
@@ -52,7 +61,7 @@ export class ProjectDevelopment extends Component {
                                 商业模式实验
                             </p>
                         </div>
-                        <div className="project-card">
+                        <div ref="cardThree" className="project-card">
                             <h5>
                                 Apr 2018
                             </h5>
@@ -60,7 +69,7 @@ export class ProjectDevelopment extends Component {
                                 年华收益率达到35%
                             </p>
                         </div>
-                        <div className="project-card">
+                        <div ref="cardFour" className="project-card">
                             <h5>
                                 Jun 2018
                             </h5>

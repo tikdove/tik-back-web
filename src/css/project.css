@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 14:56:11 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 11:19:51
+ * @Last Modified time: 2018-05-29 16:47:27
  */
 
 .project{
@@ -66,6 +66,7 @@
     position: absolute;
     box-sizing: border-box;
     padding: 18px 25px 0;
+    opacity: 0;
 }
 .project-card h5{
     font-size: 24px;
@@ -92,4 +93,18 @@
 .project-card:nth-of-type(4){
     top: 40px;
     left: 952px;
+}
+
+.card-show{
+    animation: show 0.5s linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}
+@keyframes show{
+    from{
+        opacity: 0;
+    }
+    to{
+       opacity: 1;
+    }
 }
