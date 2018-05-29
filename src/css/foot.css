@@ -2,13 +2,12 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 15:31:04 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-27 15:57:39
+ * @Last Modified time: 2018-05-29 20:54:26
  */
 
 
 .foot{
-    height: 420px;
-    background: #151922;
+    background: #2E3033;
 }
 .foot-title{
     padding-top: 35px;
@@ -17,25 +16,46 @@
     margin-bottom: 50px;
     text-align: center;
 }
-.foot-box li{
-    width: 200px;
-    margin: 0 auto;
+.foot-box{
+    overflow: hidden;
+    border-bottom:1px solid #979797;
 }
-.foot-box li img{
-    width: 200px;
-    height: 200px;
-    background: #fff;
-    margin-bottom: 20px;
+.foot-box-one{
+    float: left;
+    padding-top: 125px;
+    padding-left: 20px;
+    width: 600px;
 }
-.foot-box li p{
+.foot-box-one h4{
+    font-size: 21px;
+    color: #979797;
+}
+.foot-box-one p{
+    font-size: 12px;
+    color: #BFBFBF;
+}
+.foot-box-two{
+    float: left;
+    width: 550px;
+}
+.foot-box-two h4{
+    padding: 45px 0 30px;
+    font-size: 16px;
+    color: #979797;
+}
+.foot-box-two img{
+    display: block;
+}
+.foot-box-two p{
+    line-height: 85px;
+    color: #979797;
+    width: 200px;
     text-align: center;
-    color: #fff;
-    font-size: 14px;
 }
 .copyright{
-    font-size: 12px;
-    color: #FFFFFF;
-    line-height: 50px;
+    padding: 15px 0;
+    line-height: 35px;
     text-align: center;
-    background: #000;
+    font-size: 14px;
+    color: #979797;
 }

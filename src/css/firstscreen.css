@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 10:36:39 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 18:24:24
+ * @Last Modified time: 2018-05-29 20:04:47
  */
 
 .firstScreen{
@@ -71,7 +71,7 @@
     float: left;
 }
 .screen-box div{
-    width: 298px;
+    width: 299px;
     height: 100%;
     box-sizing: border-box;
     padding-top: 25px;
@@ -85,12 +85,13 @@
     margin: 0 auto 10px;
 }
 .screen-box span{
-    width: 2px;
+    width: 1px;
     height: 85px;
-    opacity: 0.69;
+    opacity: 0.1;
     background: #BFBFBF;
     margin-top: 25px;
 }
 .screen-box div:hover{
-    background: #8c929c;
+    background: #fff;
+    opacity: 0.1;
 }
