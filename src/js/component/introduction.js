@@ -2,11 +2,11 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 14:09:09 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-27 14:55:04
+ * @Last Modified time: 2018-05-29 13:21:48
  */
 
 import React, { Component } from "react";
-import "../../css/step.css";
+import "../../css/introduction.css";
 
 export class Step extends Component {
     render() {
@@ -18,6 +18,7 @@ export class Step extends Component {
                     </h2>
                     <ul className="step-ul">
                         <li>
+                            <div className="step-line"></div>
                             <img src={require("../../images/icon1.png")} alt="step" />
                             <h4>
                                 真实的投资项目做支撑
@@ -27,6 +28,7 @@ export class Step extends Component {
                             </p>
                         </li>
                         <li>
+                            <div className="step-line"></div>
                             <img src={require("../../images/icon2.png")} alt="step" />
                             <h4>
                                 透明的资产交易记录
@@ -36,6 +38,7 @@ export class Step extends Component {
                             </p>
                         </li>
                         <li>
+                            <div className="step-line"></div>
                             <img src={require("../../images/icon3.png")} alt="step" />
                             <h4>
                                 数字货币降低美股购买门槛
@@ -45,6 +48,7 @@ export class Step extends Component {
                             </p>
                         </li>
                         <li>
+                            <div className="step-line"></div>
                             <img src={require("../../images/icon4.png")} alt="step" />
                             <h4>
                                 科技股的增值带动资产增值

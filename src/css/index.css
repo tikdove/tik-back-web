@@ -6,10 +6,10 @@ ul,ol,li{
     list-style: none;
 }
 body{
-    font-family: "PingFangSC-Semibold", "Source Han Serif", "Micosoft YaHei";
+    font-family: "PingFangSC", "Source Han Serif", "Micosoft YaHei";
 }
 .content{
-    width: 1290px;
+    width: 1200px;
     margin: auto;
 }
 

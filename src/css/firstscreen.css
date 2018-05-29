@@ -2,12 +2,13 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 10:36:39 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-27 18:10:25
+ * @Last Modified time: 2018-05-29 21:07:44
  */
 
 .firstScreen{
     height: 100%;
-    background: #090;
+    min-height: 740px;
+    background: #ccc;
     color: #fff;
     background: url("../images/bg.png") no-repeat center center;
 }
@@ -15,11 +16,15 @@
     .firstScreen{
         background-size: 100% 100%;
     }
+    .screen-footer-bg{
+        background-size: 100% 100%;
+    }
 }
-.logo-text{
-    font-family: Arial-Black;
-    font-size: 54px;
+.logo{
     margin-bottom: 170px;
+}
+.logo img{
+    width: 84px;
 }
 .index-text-one{
     font-family: PingFangSC-Semibold;
@@ -49,34 +54,44 @@
     background: #fff;
     color: #606060;
 }
-.span-box{
+.screen-footer{
+    height: 130px;
+    position: relative;
+    margin-top: -130px;
+}
+.screen-footer-bg{
+    height: 100%;
+    background: url("../images/index-footer-bg.png") center center;
+}
+.screen-box{
     overflow: hidden;
-    padding-left: 318px;
+    margin-top: -130px;
+    height: 130px;;
 }
-.span-box span{
+.screen-box div,.screen-box span{
     float: left;
-    margin-right: 100px;
-    font-size: 26px;
-    line-height: 54px;
 }
-.span-box span:hover b{
-    animation: long 1s linear;
+.screen-box div{
+    width: 299px;
+    height: 100%;
+    box-sizing: border-box;
+    padding-top: 25px;
+    font-size: 18px;
+    color: #FFFFFF;  
+    text-align: center;  
 }
-.span-box img{
-    margin-left: 10px;
-    margin-bottom: -15px;
-}
-.span-box b{
+.screen-box div img{
     display: block;
-    height: 1px;
-    margin: 0 auto;
-    background: #fff;
+    width: 43px;
+    margin: 0 auto 10px;
 }
-@keyframes long{
-    from{
-        width: 0;
-    }
-    to{
-        width: 100%;
-    }
+.screen-box span{
+    width: 1px;
+    height: 85px;
+    opacity: 0.1;
+    background: #BFBFBF;
+    margin-top: 25px;
+}
+.screen-box div:hover{
+    background: rgba(255, 255, 255, 0.1);
 }

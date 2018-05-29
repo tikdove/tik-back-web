@@ -2,20 +2,40 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 15:13:18 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-27 15:23:28
+ * @Last Modified time: 2018-05-29 20:25:42
  */
 
 
 .traderule{
-    padding-top: 80px;
+    padding: 80px 0 200px;
 }
 .traderule h2{
     text-align: center;
-    font-size: 32px;
+    font-size: 35px;
+    margin-bottom: 10px;
 }
-.traderule img{
-    display: block;
-    margin: 0 auto;
-    width: 1290px;
-    height: auto;
+.trade-text-two{
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.trade-box{
+    overflow: hidden;
+}
+.trade-box p{
+    text-align: center;
+}
+.trade-box div{
+    float: left;
+    width: 230px;
+    font-size: 24px;
+    color: #626262;
+}
+.trade-box img{
+    float: left;
+    width: 780px;
+}
+.trade-box-text1{
+    padding-top: 70px;
+    margin-bottom: 270px;
 }

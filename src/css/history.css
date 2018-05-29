@@ -2,22 +2,55 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 16:23:09 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-27 16:39:57
+ * @Last Modified time: 2018-05-29 19:57:14
  */
 
-
+ .historyTrade{
+    background: #F8F9FB;
+    height: 400px;
+ }
 .historyTrade h2{
-    color: #fff;
-    font-size: 40px;
-    text-align: center;
-    height: 45px;
-    padding-top: 100px;
-    margin-bottom: -145px;
-    position: relative;
-    z-index: 2;
-}
-.historyTrade img{
+    max-width: 1380px;
     width: 100%;
     margin: 0 auto;
-    display: block;
+    color: #fff;
+    font-size: 32px;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 100px;
+    background: #5585EC;
+    border-radius: 10px;
+    position: relative;
+    top: -80px;
+    z-index: 2;
+}
+.trade{
+    width: 1200px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    box-shadow: 0 7px 40px 0 rgba(85,133,236,0.20);
+    border-radius: 3px;
+    position: relative;
+    top: -150px;
+    z-index: 3;
+}
+.trade li{
+    overflow: hidden;
+    font-size: 14px;
+    color: #434343;
+    border-bottom: 1px solid #DEDEDE;
+}
+.trade li:last-child{
+    border: none;
+}
+.trade li span{
+    float: left;
+    width: 400px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;    
+}
+.trade title{
+    font-size: 16px;
+    color: #434343;
 }

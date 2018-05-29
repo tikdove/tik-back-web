@@ -20,9 +20,9 @@ module.exports = {
             filename: "./index.html",
             template: "./index.html"
         }),
-        new uglifyJsPlugin()
+        // new uglifyJsPlugin()
     ],
-    // devtool: "inline-source-map",
+    devtool: "inline-source-map",
     mode: "production",
     module: {
         rules: [
@@ -60,6 +60,16 @@ module.exports = {
                 use: [
                     'html-loader'
                 ]
+            },
+            {
+                test: /.jsx?$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["es2015", "react"]
+                    }
+                }
             }
         ]
     }
