@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 10:24:47 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 18:13:37
+ * @Last Modified time: 2018-05-29 21:08:09
  */
 
 import React, { Component } from "react";
@@ -31,18 +31,18 @@ export class FirstScreen extends Component {
             <section>
                 <div className="firstScreen" style={currentStyle}>
                     <div className="content pt60">
-                        <h1 className="logo-text">
-                            TIK
+                        <h1 className="logo">
+                            <img src={require("../../images/logo.svg")} alt="logo" />
                         </h1>
                         <h3 className="index-text-one mb30">
-                            区块链上的科技型港美股票基金
+                            区块链上的科技型股票基金
                         </h3>
                         <p className="mb30 index-text-two">
                             预期年化收益率：<strong>20%</strong>
                         </p>
                         <div className="download">
                             <button onClick={this.goDownload} className="btn-download">
-                                下载app
+                                下载App
                         </button>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 10:36:39 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 20:04:47
+ * @Last Modified time: 2018-05-29 21:07:44
  */
 
 .firstScreen{
@@ -20,10 +20,11 @@
         background-size: 100% 100%;
     }
 }
-.logo-text{
-    font-family: Arial-Black;
-    font-size: 54px;
+.logo{
     margin-bottom: 170px;
+}
+.logo img{
+    width: 84px;
 }
 .index-text-one{
     font-family: PingFangSC-Semibold;
@@ -92,6 +93,5 @@
     margin-top: 25px;
 }
 .screen-box div:hover{
-    background: #fff;
-    opacity: 0.1;
+    background: rgba(255, 255, 255, 0.1);
 }

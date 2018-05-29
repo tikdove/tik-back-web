@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 591 237" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g transform="matrix(1,0,0,1,-982,-2801.8)">
+        <g id="K" transform="matrix(1,0,0,1,81,-956)">
+            <g transform="matrix(1,0,0,0.951613,-8,181.839)">
+                <rect x="1273" y="3758" width="18" height="248" style="fill:white;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,-81,956)">
+                <path d="M1527.07,3038L1507.14,3038L1447,2935L1400.35,2993L1400.35,3038L1382,3038L1382,2987L1449,2903L1527.07,3038Z" style="fill:white;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,-81,956)">
+                <path d="M1572.39,3038L1551.07,3038L1473.82,2904L1485.39,2889.34L1572.39,3038ZM1554.34,2802L1473.82,2904L1464.11,2886.34L1532.28,2802L1554.34,2802Z" style="fill:white;"/>
+            </g>
+            <g transform="matrix(1,0,0,1,-81,956)">
+                <path d="M1487.33,2802L1507.55,2802L1382,2958L1382,2802L1400,2802L1400,2910L1487.33,2801.8L1487.33,2802Z" style="fill:white;"/>
+            </g>
+        </g>
+        <g id="I" transform="matrix(1,0,0,0.819444,77,-278.292)">
+            <g transform="matrix(1,0,0,1.16129,-70,-605.129)">
+                <rect x="1273" y="3758" width="18" height="248" style="fill:white;"/>
+            </g>
+            <g transform="matrix(1,0,0,1.16129,-106,-605.129)">
+                <rect x="1273" y="3758" width="18" height="248" style="fill:white;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0,0,1,51,-955)">
+            <g>
+                <path id="T" d="M1157,3811L1071,3811L1071,3993L1053,3993L1053,3793L1157,3793L1157,3811ZM1035,3993L1017,3993L1017,3811L931,3811L931,3793L1035,3793L1035,3993ZM1157,3757L1157,3775L931,3775L931,3757L1157,3757Z" style="fill:white;"/>
+            </g>
+        </g>
+    </g>
+</svg>
