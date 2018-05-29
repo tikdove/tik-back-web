@@ -60,6 +60,16 @@ module.exports = {
                 use: [
                     'html-loader'
                 ]
+            },
+            {
+                test: /.jsx?$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["es2015", "react"]
+                    }
+                }
             }
         ]
     }
