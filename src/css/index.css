@@ -6,7 +6,7 @@ ul,ol,li{
     list-style: none;
 }
 body{
-    font-family: "myPingFang", "PingFangSC", "Source Han Serif", "Micosoft YaHei";
+    font-family: "myPingFang", "PingFangSC", "Source Han Serif", "微软雅黑";
 }
 @font-face{
     font-family: "myPingFang";
