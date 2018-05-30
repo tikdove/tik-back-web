@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 15:28:57 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-30 13:41:19
+ * @Last Modified time: 2018-05-30 15:43:01
  */
 
 
@@ -27,9 +27,9 @@ export class Foot extends Component {
                             <h4>
                                 下载App, 立即投资获取收益
                             </h4>
-                            <img src={require("../../images/ma.png")} alt="二维码" />
+                            <img className="foot-box-two-img" src={require("../../images/ma.png")} alt="二维码" />
                             <p>
-                                Android版本下载
+                                <img src={require("../../images/android.png")} alt="安卓码" />
                             </p>
                         </div>
                     </div>

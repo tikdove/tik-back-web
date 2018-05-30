@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 15:31:04 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-30 13:42:31
+ * @Last Modified time: 2018-05-30 15:43:48
  */
 
 
@@ -48,14 +48,16 @@
     color: #979797;
     font-weight: normal;
 }
-.foot-box-two img{
+.foot-box-two-img{
     display: block;
+    width: 200px;
 }
 .foot-box-two p{
-    line-height: 85px;
+    /* line-height: 85px; */
     color: #979797;
     width: 200px;
     text-align: center;
+    padding: 15px 0;
 }
 .copyright{
     padding: 15px 0;
