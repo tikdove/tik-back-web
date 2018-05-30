@@ -16,7 +16,7 @@ job_build_2:
   stage: build
   image: gitlab/dind
   script:
-    - docker build -t tikcoin-page:1.0.0 .
+    - docker build -t tikcoin-page:1.0.1 .
     
 
 job_deploy:
