@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 14:53:03 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-30 14:01:14
+ * @Last Modified time: 2018-05-30 18:47:52
  */
 
 import React, { Component } from "react";
@@ -14,7 +14,7 @@ let showCard = (eles) => {
         setTimeout(() => {
             item.className = item.className + " card-show";
             console.log(index, item.className);
-        }, index * 500)
+        }, index * 300)
     })
 }
 export class ProjectDevelopment extends Component {
@@ -24,7 +24,7 @@ export class ProjectDevelopment extends Component {
         let cards = [this.refs.cardOne, this.refs.cardTwo, this.refs.cardThree, this.refs.cardFour];
         window.onscroll = function () {
             let clientParams = box.getBoundingClientRect();
-            if (clientParams.top < 250 && !isShowCard) {
+            if (clientParams.top < 350 && !isShowCard) {
                 isShowCard = true;
                 showCard(cards);
             }

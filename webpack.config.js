@@ -17,7 +17,7 @@ module.exports = {
         new cleanWebpackPlugin(["dist"]),
         new htmlWebpackPlugin({
             title: "Index One",
-            favicon: 'favico.ico',
+            favicon: 'favicon.ico',
             filename: "index.html",
             template: "index.html"
         }),
