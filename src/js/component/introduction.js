@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 14:09:09 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 13:21:48
+ * @Last Modified time: 2018-05-30 13:46:50
  */
 
 import React, { Component } from "react";
@@ -54,7 +54,7 @@ export class Step extends Component {
                                 科技股的增值带动资产增值
                             </h4>
                             <p>
-                                专业股票投资团队，利用大数据合理配置科技股，有效降低整体风险。近10年，年化收益率不低于25%；长期持有 TIK 份额，我们一起提前实现财务自由。
+                                专业股票投资团队，利用大数据合理配置科技股，有效降低整体风险。近10年，年化收益率不低于20%；长期持有 TIK 份额，我们一起提前实现财务自由。
                             </p>
                         </li>
                     </ul>

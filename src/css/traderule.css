@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 15:13:18 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 20:25:42
+ * @Last Modified time: 2018-05-30 13:37:00
  */
 
 
@@ -13,6 +13,9 @@
     text-align: center;
     font-size: 35px;
     margin-bottom: 10px;
+}
+.trade-title{
+    font-weight: bold;
 }
 .trade-text-two{
     font-size: 16px;

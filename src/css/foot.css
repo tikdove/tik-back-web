@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 15:31:04 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-30 11:00:04
+ * @Last Modified time: 2018-05-30 13:42:31
  */
 
 
@@ -18,13 +18,13 @@
 }
 .foot-box{
     overflow: hidden;
-    border-bottom:1px solid #979797;
+    border-bottom:1px solid rgba(223,223,222,0.2);
 }
 .foot-box-one{
     float: left;
     padding-top: 125px;
     padding-left: 20px;
-    width: 470px;
+    width: 482px;
 }
 .foot-box-one img{
     width: 84px;
@@ -36,6 +36,7 @@
 .foot-box-one p{
     font-size: 12px;
     color: #BFBFBF;
+    opacity: 0.5;
 }
 .foot-box-two{
     float: left;
@@ -45,6 +46,7 @@
     padding: 45px 0 30px;
     font-size: 16px;
     color: #979797;
+    font-weight: normal;
 }
 .foot-box-two img{
     display: block;
@@ -61,4 +63,7 @@
     text-align: center;
     font-size: 14px;
     color: #979797;
+}
+.copyright p{
+    opacity: 0.5;
 }

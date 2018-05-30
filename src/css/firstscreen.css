@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 10:36:39 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 21:07:44
+ * @Last Modified time: 2018-05-30 13:56:04
  */
 
 .firstScreen{
@@ -43,12 +43,12 @@
     border: 1px solid #FFFFFF;
     border-radius: 10px;
     padding: 20px 50px;
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 24px;
     background: none;
     color: #fff;
     cursor: pointer;
     outline: none;
+    letter-spacing: 0.5px;
 }
 .btn-download:hover{
     background: #fff;
@@ -88,7 +88,7 @@
 .screen-box span{
     width: 1px;
     height: 85px;
-    opacity: 0.1;
+    opacity: 0.3;
     background: #BFBFBF;
     margin-top: 25px;
 }

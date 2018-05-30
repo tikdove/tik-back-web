@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 10:24:47 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 21:08:09
+ * @Last Modified time: 2018-05-30 13:54:45
  */
 
 import React, { Component } from "react";
@@ -42,7 +42,7 @@ export class FirstScreen extends Component {
                         </p>
                         <div className="download">
                             <button onClick={this.goDownload} className="btn-download">
-                                下载App
+                                下载&nbsp;App
                         </button>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ export class FirstScreen extends Component {
                         <span></span>
                         <div>
                             <img src={require("../../images/index-icon3.png")} alt="icon" />
-                            期年化收益15%以上
+                            预期年化收益20%以上
                         </div>
                         <span></span>
                         <div>

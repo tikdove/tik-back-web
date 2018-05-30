@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 15:28:57 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-30 10:58:47
+ * @Last Modified time: 2018-05-30 13:41:19
  */
 
 
@@ -16,7 +16,7 @@ export class Foot extends Component {
                 <div className="content">
                     <div className="foot-box">
                         <div className="foot-box-one">
-                            <h4 className="mb30">
+                            <h4 className="mb10">
                                 <img src={require("../../images/logo.svg")} alt="logo" />
                             </h4>
                             <p>
@@ -36,10 +36,7 @@ export class Foot extends Component {
                     <footer className="copyright">
                         <p>
                             2018. Tikcoin. All rights reserved.
-                            <br />
-                            蜀ICP备13021128号-2
                         </p>
-
                     </footer>
                 </div>
 

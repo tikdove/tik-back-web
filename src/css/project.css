@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 14:56:11 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-30 10:57:27
+ * @Last Modified time: 2018-05-30 13:47:49
  */
 
 .project{
@@ -69,13 +69,13 @@
     opacity: 0;
 }
 .project-card h5{
-    font-size: 24px;
+    font-size: 22px;
     line-height: 34px;
     color: #000;
     font-weight: normal;
 }
 .project-card p{
-    font-size: 18px;
+    font-size: 16px;
     color: #546497;
 }
 .project-card:nth-of-type(1){
@@ -96,7 +96,7 @@
 }
 
 .card-show{
-    animation: show 0.5s linear;
+    animation: show 0.3s linear;
     animation-fill-mode: forwards;
     animation-iteration-count: 1;
 }

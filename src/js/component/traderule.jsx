@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 15:12:23 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 20:21:56
+ * @Last Modified time: 2018-05-30 13:43:35
  */
 
 import React, { Component } from "react";
@@ -13,7 +13,7 @@ export class TradeRules extends Component {
         return (
             <section className="traderule">
                 <h2>
-                    如何交易?
+                    如何交易
                 </h2>
                 <p className="trade-text-two">
                     TIK买入赎回免手续费

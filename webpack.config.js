@@ -18,7 +18,8 @@ module.exports = {
         new htmlWebpackPlugin({
             title: "Index One",
             favicon: 'favico.ico',
-            filename: "index.html"
+            filename: "index.html",
+            template: "index.html"
         }),
         new uglifyJsPlugin()
     ],

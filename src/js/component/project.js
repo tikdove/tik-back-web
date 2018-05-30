@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 14:53:03 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-30 10:43:36
+ * @Last Modified time: 2018-05-30 14:01:14
  */
 
 import React, { Component } from "react";
@@ -50,7 +50,7 @@ export class ProjectDevelopment extends Component {
                                 December 2017
                             </h5>
                             <p>
-                                idea
+                                Idea
                             </p>
                         </div>
                         <div ref="cardTwo" className="project-card">
@@ -66,7 +66,7 @@ export class ProjectDevelopment extends Component {
                                 Apr 2018
                             </h5>
                             <p>
-                                年化收益率达到35%
+                                年化收益率达到20%
                             </p>
                         </div>
                         <div ref="cardFour" className="project-card">
