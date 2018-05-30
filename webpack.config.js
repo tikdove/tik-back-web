@@ -17,12 +17,12 @@ module.exports = {
         new cleanWebpackPlugin(["dist"]),
         new htmlWebpackPlugin({
             title: "Index One",
-            filename: "./index.html",
-            template: "./index.html"
+            favicon: 'favico.ico',
+            filename: "index.html"
         }),
-        // new uglifyJsPlugin()
+        new uglifyJsPlugin()
     ],
-    devtool: "inline-source-map",
+    // devtool: "inline-source-map",
     mode: "production",
     module: {
         rules: [
@@ -34,7 +34,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpg|svg|gif)$/,
+                test: /\.(png|jpg|svg|gif|ico)$/,
                 use: [
                     'file-loader'
                 ]
@@ -56,7 +56,7 @@ module.exports = {
                 }
             },
             {
-                test: /\.html$/,
+                test: /\.(html|ico)$/,
                 use: [
                     'html-loader'
                 ]

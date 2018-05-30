@@ -2,16 +2,16 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 14:56:11 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 16:47:27
+ * @Last Modified time: 2018-05-30 10:57:27
  */
 
 .project{
-    padding: 65px 0 160px;
+    padding: 45px 0 200px;
 }
 .project-title{
     text-align: center;
     font-size: 32px;
-    margin-bottom: 180px;
+    margin-bottom: 100px;
 }
 .project-content{
     height: 131px;

@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 16:23:09 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 19:57:14
+ * @Last Modified time: 2018-05-30 10:44:42
  */
 
  .historyTrade{
@@ -36,7 +36,7 @@
 }
 .trade li{
     overflow: hidden;
-    font-size: 14px;
+    font-size: 18px;
     color: #434343;
     border-bottom: 1px solid #DEDEDE;
 }
@@ -51,6 +51,6 @@
     line-height: 100px;    
 }
 .trade title{
-    font-size: 16px;
+    font-size: 20px;
     color: #434343;
 }

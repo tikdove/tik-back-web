@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 15:28:57 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 20:55:04
+ * @Last Modified time: 2018-05-30 10:58:47
  */
 
 
@@ -17,7 +17,7 @@ export class Foot extends Component {
                     <div className="foot-box">
                         <div className="foot-box-one">
                             <h4 className="mb30">
-                                TIK
+                                <img src={require("../../images/logo.svg")} alt="logo" />
                             </h4>
                             <p>
                                 Technology is king.

@@ -6,8 +6,14 @@ ul,ol,li{
     list-style: none;
 }
 body{
-    font-family: "PingFangSC", "Source Han Serif", "Micosoft YaHei";
+    font-family: "myPingFang", "PingFangSC", "Source Han Serif", "Micosoft YaHei";
 }
+@font-face{
+    font-family: "myPingFang";
+    src: url("./SF-UI-Display-Heavy.otf") format("otf");
+}
+
+
 .content{
     width: 1200px;
     margin: auto;

@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-05-27 15:31:04 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-05-29 20:54:26
+ * @Last Modified time: 2018-05-30 11:00:04
  */
 
 
@@ -24,7 +24,10 @@
     float: left;
     padding-top: 125px;
     padding-left: 20px;
-    width: 600px;
+    width: 470px;
+}
+.foot-box-one img{
+    width: 84px;
 }
 .foot-box-one h4{
     font-size: 21px;
