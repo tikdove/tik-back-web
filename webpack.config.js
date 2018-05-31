@@ -10,7 +10,7 @@ module.exports = {
         two: "./src/js/two.js"
     }, */
     output: {
-        filename: "[name].bundle.js",
+        filename: "[name].[chunkhash].bundle.js",
         path: path.resolve(__dirname, "dist")
     },
     plugins: [
