@@ -4,7 +4,7 @@ const cleanWebpackPlugin = require("clean-webpack-plugin");
 const uglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
-    entry: ["./src/js/index.js"],
+    entry: ["./src/index.jsx"],
     /* entry: {
         index: "./src/js/index.js",
         two: "./src/js/two.js"
@@ -21,10 +21,10 @@ module.exports = {
             filename: "index.html",
             template: "index.html"
         }),
-        new uglifyJsPlugin()
+        // new uglifyJsPlugin()
     ],
-    // devtool: "inline-source-map",
-    mode: "production",
+    devtool: "inline-source-map",
+    mode: "development",
     module: {
         rules: [
             {
