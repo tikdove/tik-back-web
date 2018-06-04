@@ -10,20 +10,8 @@ import React, { Component } from "react";
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
-
-let One = () => (
-    <div>
-        One123
-    </div>
-);
-
-let Two = () => (
-    <div>
-        Two123
-    </div>
-);
-
-
+import Trade from "./trade/index.jsx";
+import Order from "./order/index.jsx";
 
 export default class APP extends Component {
     constructor() {
@@ -70,8 +58,8 @@ export default class APP extends Component {
                             <hr />
                             Here is the content.
                             <hr />
-                            <Route exact path="/" component={One} />
-                            <Route path="/order" component={Two} />
+                            <Route exact path="/" component={Trade} />
+                            <Route path="/order" component={Order} />
                         </Content>
                     </Layout>
                 </Layout>
