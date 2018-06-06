@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-05 21:12:44
+ * @Last Modified time: 2018-06-06 16:37:27
  * @content: 
  */
 
@@ -11,6 +11,8 @@ import { Button, Table, Modal } from "antd";
 import * as uuid from "uuid";
 import reqwest from "reqwest";
 import moment from "moment-timezone";
+import { BACK_SYSTEM_URL } from "../../../config/config.json";
+
 
 const columns = [{
     title: 'Name',
@@ -22,11 +24,8 @@ const columns = [{
     title: '总数',
     dataIndex: 'totalSuply',
 }, {
-    title: '单价',
+    title: '单价/¥',
     dataIndex: 'price',
-    render(text) {
-        return text + " ¥"
-    }
 }, {
     title: '剩余',
     dataIndex: 'restSuply',
@@ -34,7 +33,8 @@ const columns = [{
     title: '创建日期',
     dataIndex: 'createdAt',
     render(text, record, index) {
-        return moment(text).tz("Asia/ShangHai").format("YYYY-MM-DD hh:mm:ss")
+        record.datetime = moment(text).tz("Asia/ShangHai").format("YYYY-MM-DD hh:mm:ss");
+        return record.datetime;
     }
 }, {
     title: '状态',
@@ -61,63 +61,135 @@ export default class Trade extends Component {
 
         this.state = {
             data: [],
-            visible: false,
+            /* 分页相关 */
             pagination: {
-                pageSize: 20,
-                page: 15,
+                pageSize: 5,
+                page: 1,
                 current: 1,
+                total: 0
             },
-            loading: false
+            loading: false,
+            /* 查询数据状态 */
+            status: 1,
+
+            /* dialog */
+            dialog: {
+                visible: false,
+                record: {
+                    alipay: {}
+                }
+            }
         }
 
-        this.rowClick = this.rowClick.bind(this);
-        this.handleOk = this.handleOk.bind(this);
-        this.handleCancel = this.handleCancel.bind(this);
-    }
-    showModal() {
-        this.setState({
-            visible: true
-        })
+        // this.fetch = this.fetch.bind(this);
+        // this.rowClick = this.rowClick.bind(this);
+        // this.handleOk = this.handleOk.bind(this);
+        // this.handleCancel = this.handleCancel.bind(this);
+        // "rowClick", "handleOk", "handleCancel", "change", "rowClick", 
+        let keys = ["fetch", "fetchDefault", "fetchNorma", "fetchDown", "fetchIllegitmacy", "fetchAll", "paginationChange", "handleOk", "handleCancel"];
+        for (let key of keys) {
+            this[key] = this[key].bind(this);
+        }
     }
 
     handleOk() {
         console.log("ok");
         this.setState({
-            visible: false
+            dialog: {
+                visible: false
+            }
         })
     }
     handleCancel() {
-        console.log("cancel");
+        let dialog = this.state.dialog;
+        dialog.visible = false;
         this.setState({
-            visible: false
+            dialog
         })
     }
 
-    change(pagination, filters, sorter) {
-        console.log(pagination, filters, sorter);
+    paginationChange(pagination, filters, sorter) {
+        // console.log(pagination, filters, sorter);
+        this.setState({
+            pagination
+        });
+        setTimeout(this.fetch, 0)
     }
 
     rowClick(record) {
-        console.log(record, 123)
-        this.showModal();
+        if (record.status != 1) {
+            return;
+        }
+
+        this.setState({
+            dialog: {
+                visible: true,
+                record: record
+            }
+        })
     }
 
-    componentDidMount() {
+    fetch(status) {
         let _this = this;
-        reqwest({
-            url: "http://localhost:3003/v1/trade",
-            method: "get",
-            success(resp) {
-                console.log(11111, resp);
 
-                _this.setState({
-                    data: resp.data.rows
-                })
-            },
-            error(err) {
-                console.error(err);
+        if (!status) {
+            status = this.state.status
+        }
+        this.setState({
+            loading: true,
+            status
+        })
+
+        let { current, pageSize } = this.state.pagination;
+        reqwest({
+            url: BACK_SYSTEM_URL + "/v1/trade",
+            method: "get",
+            data: {
+                page: current - 1,
+                limit: pageSize,
+                status
             }
+        }).then((resp) => {
+            // console.log(resp);
+            if (resp.code != 0) {
+                return
+            }
+            _this.setState({
+                data: resp.data.rows,
+                loading: false,
+                pagination: {
+                    total: resp.data.count,
+                    page: Math.ceil(resp.data.count / pageSize),
+                    current,
+                    pageSize
+                }
+            })
+        }, (err, msg) => {
+            console.log(err, msg);
+        }).always((resp) => {
+            _this.setState({
+                loading: false
+            })
         });
+    }
+
+    fetchDefault() {
+        this.fetch(1)
+    }
+    fetchNorma() {
+        this.fetch(2);
+    }
+    fetchDown() {
+        this.fetch(3);
+    }
+    fetchIllegitmacy() {
+        this.fetch(4);
+    }
+    fetchAll() {
+        this.fetch(-1);
+    }
+    componentDidMount() {
+        this.fetch();
     }
 
     render() {
@@ -127,35 +199,53 @@ export default class Trade extends Component {
                     卖方挂单列表
                  </h1>
                 <div className="mb10">
-                    <Button style={{ 'marginRight': '10px' }} size="large" type="default">默认(未确认订单)</Button>
-                    <Button style={{ 'marginRight': '10px' }} size="large" type="default">已确认订单</Button>
-                    <Button style={{ 'marginRight': '10px' }} size="large" type="default">已卖完订单</Button>
+                    <Button style={{ 'marginRight': '10px' }} onClick={this.fetchDefault} size="large" type="default">待审核(默认)</Button>
+                    <Button style={{ 'marginRight': '10px' }} onClick={this.fetchNorma} size="large" type="default">正常</Button>
+                    <Button style={{ 'marginRight': '10px' }} onClick={this.fetchDown} size="large" type="default">下架</Button>
+                    <Button style={{ 'marginRight': '10px' }} onClick={this.fetchIllegitmacy} size="large" type="default">非法</Button>
+                    <Button style={{ 'marginRight': '10px' }} onClick={this.fetchAll} size="large" type="default">全部</Button>
                 </div>
                 <Table columns={columns}
                     rowKey={record => record._id}
                     dataSource={this.state.data}
                     pagination={this.state.pagination}
                     loading={this.state.loading}
-                    onChange={this.change}
+                    onChange={this.paginationChange}
                     onRow={(record) => {
                         return {
-                            onClick: this.rowClick
+                            onClick: () => {
+                                this.rowClick(record)
+                            }
                         }
                     }}
                 />
 
                 <Modal
-                    title="Basic Modal"
-                    visible={this.state.visible}
+                    title="卖单确认操作"
+                    visible={this.state.dialog.visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
                 >
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
-                    <p>Some contents...</p>
+
+                    <h3>用户信息</h3>
+                    <p>
+                        姓名: <strong>{this.state.dialog.record.alipay.realName}</strong>
+                        <br />
+                        支付宝账号:  <strong>{this.state.dialog.record.alipay.account}</strong>
+                        <br />
+                        卖出总量:  <strong>{this.state.dialog.record.totalSuply}</strong>
+                        <br />
+                        日期: <strong>{this.state.dialog.record.datetime}</strong>
+                        <br />
+                        单价: <strong>{this.state.dialog.record.price} ¥/tik</strong>
+                    </p>
+                    <hr />
+                    <p>1.请检查该用户在同一时段是否存在多次相同卖出记录。</p>
+                    <p>2.请检查用户的支付宝账号。</p>
+                    <h4>点击ok后，该卖出单即生效。用户在交易列表即可见</h4>
+
                 </Modal>
             </section>
-
         )
     }
 }
