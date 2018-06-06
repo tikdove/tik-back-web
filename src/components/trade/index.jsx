@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-06 16:37:27
+ * @Last Modified time: 2018-06-06 18:07:35
  * @content: 
  */
 
@@ -81,11 +81,6 @@ export default class Trade extends Component {
             }
         }
 
-        // this.fetch = this.fetch.bind(this);
-        // this.rowClick = this.rowClick.bind(this);
-        // this.handleOk = this.handleOk.bind(this);
-        // this.handleCancel = this.handleCancel.bind(this);
-        // "rowClick", "handleOk", "handleCancel", "change", "rowClick", 
         let keys = ["fetch", "fetchDefault", "fetchNorma", "fetchDown", "fetchIllegitmacy", "fetchAll", "paginationChange", "handleOk", "handleCancel"];
         for (let key of keys) {
             this[key] = this[key].bind(this);
@@ -93,11 +88,22 @@ export default class Trade extends Component {
     }
 
     handleOk() {
-        console.log("ok");
-        this.setState({
-            dialog: {
-                visible: false
+        let _this = this;
+        reqwest({
+            url: BACK_SYSTEM_URL + "/v1/trade",
+            method: "put",
+            data: {
+                tradeId: this.state.dialog.record._id
             }
+        }).then((result) => {
+            let dialog = _this.state.dialog;
+            dialog.visible = false;
+            _this.fetch();
+            _this.setState({
+                dialog
+            })
+        }, (err, msg) => {
+            console.log(err, msg);
         })
     }
     handleCancel() {
@@ -174,18 +180,43 @@ export default class Trade extends Component {
     }
 
     fetchDefault() {
+        let pagination = this.state.pagination;
+        pagination.current = 1;
+        this.setState({
+            pagination
+        })
         this.fetch(1)
     }
     fetchNorma() {
+        let pagination = this.state.pagination;
+        pagination.current = 1;
+        this.setState({
+            pagination
+        })
         this.fetch(2);
     }
     fetchDown() {
+        let pagination = this.state.pagination;
+        pagination.current = 1;
+        this.setState({
+            pagination
+        })
         this.fetch(3);
     }
     fetchIllegitmacy() {
+        let pagination = this.state.pagination;
+        pagination.current = 1;
+        this.setState({
+            pagination
+        })
         this.fetch(4);
     }
     fetchAll() {
+        let pagination = this.state.pagination;
+        pagination.current = 1;
+        this.setState({
+            pagination
+        })
         this.fetch(-1);
     }
     componentDidMount() {
