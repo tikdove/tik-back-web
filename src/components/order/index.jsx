@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-06 18:17:53
+ * @Last Modified time: 2018-06-06 19:06:25
  * @content: 
  */
 
@@ -15,6 +15,9 @@ import { BACK_SYSTEM_URL } from "../../../config/config.json";
 
 
 const columns = [{
+    title: 'order_ID',
+    dataIndex: '_id',
+}, {
     title: '买方用户uid',
     dataIndex: 'uid',
 }, {
@@ -32,11 +35,9 @@ const columns = [{
         if (!record.tradeInfo) {
             record.tradeInfo = record.tradeSnapshot;
         }
-        return Math.round(record.qty * record.tradeInfo.price * 100) / 100;
+        record.money = Math.round(record.qty * record.tradeInfo.price * 100) / 100;
+        return record.money;
     }
-}, {
-    title: 'tradeId',
-    dataIndex: 'tradeId',
 }, {
     title: '创建日期',
     dataIndex: 'createdAt',
@@ -86,6 +87,9 @@ export default class Trade extends Component {
             dialog: {
                 visible: false,
                 record: {
+                    tradeInfo: {
+                        alipay: {}
+                    }
                 }
             }
         }
@@ -102,7 +106,8 @@ export default class Trade extends Component {
             url: BACK_SYSTEM_URL + "/v1/order",
             method: "put",
             data: {
-                tradeId: this.state.dialog.record._id
+                orderId: this.state.dialog.record._id,
+                qty: this.state.dialog.record.qty
             }
         }).then((result) => {
             let dialog = _this.state.dialog;
@@ -134,9 +139,9 @@ export default class Trade extends Component {
     }
 
     rowClick(record) {
-        /* if (record.status != 2) {
+        if (record.status != 2) {
             return;
-        } */
+        }
 
         this.setState({
             dialog: {
@@ -273,21 +278,27 @@ export default class Trade extends Component {
 
                     <h3>订单信息</h3>
                     <p>
-                        {/* 姓名: <strong>{this.state.dialog.record.alipay.realName}</strong> */}
-                        <br />
-                        {/* 支付宝账号:  <strong>{this.state.dialog.record.alipay.account}</strong> */}
-                        <br />
-                        {/* 卖出总量:  <strong>{this.state.dialog.record.totalSuply}</strong> */}
-                        <br />
                         日期: <strong>{this.state.dialog.record.datetime}</strong>
                         <br />
-                        {/* 单价: <strong>{this.state.dialog.record.price} ¥/tik</strong> */}
+                        买入总量: <strong>{this.state.dialog.record.qty}</strong>
+                        <br />
+                        买入单价: <strong>{this.state.dialog.record.tradeInfo.price} ¥/tik</strong>
+                        <br />
+                        应付金额: <strong>{this.state.dialog.record.money}</strong>
+                    </p>
+                    <h3>
+                        卖家信息
+                    </h3>
+                    <p>
+                        卖家姓名: <strong>{this.state.dialog.record.tradeInfo.alipay.realName}</strong>
+                        <br />
+                        卖家支付宝账号:  <strong>{this.state.dialog.record.tradeInfo.alipay.account}</strong>
+                        <br />
                     </p>
                     <hr />
-                    <p>1.请检查该用户在同一时段是否存在多次相同卖出记录。</p>
-                    <p>2.请检查用户的支付宝账号。</p>
-                    <h4>点击ok后，该卖出单即生效。用户在交易列表即可见</h4>
-
+                    <p>1.请确认收到该用户打款。</p>
+                    <p>2.请打款至卖方支付宝账号。</p>
+                    <h4>点击ok后，买方即在系统中增加相应资产。</h4>
                 </Modal>
             </section>
         )
