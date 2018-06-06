@@ -1,6 +1,6 @@
 version: '2'
 services:
-  register-page:
-    image: register-page:1.0.0
+  tik-back-web:
+    image: tikcoin-back-web:1.0.1
     stdin_open: true
     tty: true

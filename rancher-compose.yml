@@ -1,6 +1,6 @@
 version: '2'
 services:
-  register-page:
+  tik-back-web:
     upgrade_strategy:
       start_first: true
     scale: 1
