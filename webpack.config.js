@@ -21,10 +21,10 @@ module.exports = {
             filename: "index.html",
             template: "index.html"
         }),
-        // new uglifyJsPlugin()
+        new uglifyJsPlugin()
     ],
-    devtool: "inline-source-map",
-    mode: "development",
+    // devtool: "inline-source-map",
+    mode: "production",
     module: {
         rules: [
             {
