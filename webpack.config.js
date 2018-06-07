@@ -23,9 +23,9 @@ module.exports = {
             filename: "index.html",
             template: "index.html"
         }),
-        new webpack.DefinePlugin({
-            BACK_SYSTEM_URL: JSON.stringify(process.env.BACK_SYSTEM_URL)
-        }),
+        // new webpack.DefinePlugin({
+        //     BACK_SYSTEM_URL: JSON.stringify(process.env.BACK_SYSTEM_URL)
+        // }),
         // new uglifyJsPlugin()
     ],
     devtool: "inline-source-map",
