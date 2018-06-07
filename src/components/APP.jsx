@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:37:42 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-04 19:43:57
+ * @Last Modified time: 2018-06-07 19:09:53
  * @content: 
  */
 
@@ -17,7 +17,7 @@ export default class APP extends Component {
     constructor() {
         super();
         this.state = {
-            collapsed: false,
+            collapsed: false
         };
 
         this.toggle = this.toggle.bind(this);
@@ -28,7 +28,14 @@ export default class APP extends Component {
             collapsed: !this.state.collapsed,
         });
     }
+
+    componentDidMount() {
+    }
+
     render() {
+
+        let contentStyle = { margin: '24px 16px', padding: 24, background: '#fff', minHeight: window["innerHeight"] - 48 };
+
         return (
             <Router>
                 <Layout>
@@ -54,10 +61,7 @@ export default class APP extends Component {
                         </Menu>
                     </Sider>
                     <Layout>
-                        <Content style={{ margin: '24px 16px', padding: 24, background: '#fff', minHeight: 700 }}>
-                            <hr />
-                            Here is the content.
-                            <hr />
+                        <Content style={contentStyle}>
                             <Route exact path="/" component={Trade} />
                             <Route path="/order" component={Order} />
                         </Content>
