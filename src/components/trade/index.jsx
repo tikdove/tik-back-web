@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-07 11:13:02
+ * @Last Modified time: 2018-06-07 13:16:52
  * @content: 
  */
 
@@ -66,7 +66,7 @@ export default class Trade extends Component {
             data: [],
             /* 分页相关 */
             pagination: {
-                pageSize: 5,
+                pageSize: 20,
                 page: 1,
                 current: 1,
                 total: 0
