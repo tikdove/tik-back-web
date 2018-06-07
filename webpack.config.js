@@ -4,7 +4,7 @@ const cleanWebpackPlugin = require("clean-webpack-plugin");
 const uglifyJsPlugin = require("uglifyjs-webpack-plugin");
 let conf = require('dotenv').load()
 const webpack = require("webpack");
-
+console.log(1111111111, conf);
 module.exports = {
     entry: ["./src/index.jsx"],
     /* entry: {
