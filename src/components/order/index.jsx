@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-07 10:32:26
+ * @Last Modified time: 2018-06-07 11:11:06
  * @content: 
  */
 
@@ -11,7 +11,7 @@ import { Button, Table, Modal } from "antd";
 import * as uuid from "uuid";
 import axios from "axios";
 import moment from "moment-timezone";
-import { BACK_SYSTEM_URL } from "../../../config/config.json";
+import { BACK_SYSTEM_URL } from "../../../config/config";
 
 
 const columns = [{

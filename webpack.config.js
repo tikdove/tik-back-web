@@ -2,6 +2,8 @@ const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const cleanWebpackPlugin = require("clean-webpack-plugin");
 const uglifyJsPlugin = require("uglifyjs-webpack-plugin");
+let conf = require('dotenv').load()
+const webpack = require("webpack");
 
 module.exports = {
     entry: ["./src/index.jsx"],
@@ -21,6 +23,9 @@ module.exports = {
             filename: "index.html",
             template: "index.html"
         }),
+        new webpack.DefinePlugin({
+            BACK_SYSTEM_URL: JSON.stringify(process.env.BACK_SYSTEM_URL)
+        })
         // new uglifyJsPlugin()
     ],
     devtool: "inline-source-map",

@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-07 09:53:02
+ * @Last Modified time: 2018-06-07 11:13:02
  * @content: 
  */
 
@@ -11,8 +11,11 @@ import { Button, Table, Modal } from "antd";
 import * as uuid from "uuid";
 import axios from "axios";
 import moment from "moment-timezone";
-import { BACK_SYSTEM_URL } from "../../../config/config.json";
+// import config, { BACK_SYSTEM_URL } from "../../../config/config";
+// console.log(1111111112222, config);
+let BACK_SYSTEM_URL = process.env.BACK_SYSTEM_URL;
 
+console.log(BACK_SYSTEM_URL);
 
 const columns = [{
     title: 'Name',
