@@ -30,6 +30,7 @@
   "dependencies": {
     "antd": "^3.6.1",
     "app-module-path": "^2.2.0",
+    "axios": "^0.18.0",
     "jquery": "^3.3.1",
     "koa": "^2.5.1",
     "koa-static": "^4.0.3",
@@ -40,7 +41,7 @@
     "react-dom": "^16.4.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
-    "reqwest": "^2.0.5",
+    "request": "^2.87.0",
     "uuid": "^3.2.1"
   }
 }

@@ -2,14 +2,14 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-06 19:06:25
+ * @Last Modified time: 2018-06-07 10:32:26
  * @content: 
  */
 
 import React, { Component } from "react";
 import { Button, Table, Modal } from "antd";
 import * as uuid from "uuid";
-import reqwest from "reqwest";
+import axios from "axios";
 import moment from "moment-timezone";
 import { BACK_SYSTEM_URL } from "../../../config/config.json";
 
@@ -33,7 +33,7 @@ const columns = [{
     title: '金额',
     render(text, record, index) {
         if (!record.tradeInfo) {
-            record.tradeInfo = record.tradeSnapshot;
+            record.tradeInfo = JSON.parse(record.tradeSnapshot);
         }
         record.money = Math.round(record.qty * record.tradeInfo.price * 100) / 100;
         return record.money;
@@ -94,7 +94,7 @@ export default class Trade extends Component {
             }
         }
 
-        let keys = ["fetch", "fetchCreate", "fetchBuyConfrim", "fetchDone", "fetchAll", "paginationChange", "handleOk", "handleCancel"];
+        let keys = ["fetch", "fetchCreate", "fetchBuyConfrim", "fetchDone", "fetchInvalid", "fetchAll", "paginationChange", "handleOk", "handleCancel"];
         for (let key of keys) {
             this[key] = this[key].bind(this);
         }
@@ -102,7 +102,7 @@ export default class Trade extends Component {
 
     handleOk() {
         let _this = this;
-        reqwest({
+        axios({
             url: BACK_SYSTEM_URL + "/v1/order",
             method: "put",
             data: {
@@ -110,17 +110,23 @@ export default class Trade extends Component {
                 qty: this.state.dialog.record.qty
             }
         }).then((result) => {
+            result = result.data;
+
+            console.log("3333333333", result);
+
+            if (result.code != 0) {
+                return alert(result.message);
+            }
+
             let dialog = _this.state.dialog;
             dialog.visible = false;
-            _this.fetch();
             _this.setState({
                 dialog
             })
+            _this.fetch();
         }, (err, msg) => {
             console.log(err, msg);
         })
-
-        console.log("ok")
     }
     handleCancel() {
         let dialog = this.state.dialog;
@@ -163,16 +169,17 @@ export default class Trade extends Component {
         })
 
         let { current, pageSize } = this.state.pagination;
-        reqwest({
+        axios({
             url: BACK_SYSTEM_URL + "/v1/order",
             method: "get",
-            data: {
+            params: {
                 page: current - 1,
                 limit: pageSize,
                 status
             }
         }).then((resp) => {
-            // console.log(resp);
+            console.log(resp);
+            resp = resp.data;
             if (resp.code != 0) {
                 return
             }
@@ -188,7 +195,6 @@ export default class Trade extends Component {
             })
         }, (err, msg) => {
             console.log(err, msg);
-        }).always((resp) => {
             _this.setState({
                 loading: false
             })

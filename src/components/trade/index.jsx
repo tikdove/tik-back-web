@@ -2,14 +2,14 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-06 18:07:35
+ * @Last Modified time: 2018-06-07 09:53:02
  * @content: 
  */
 
 import React, { Component } from "react";
 import { Button, Table, Modal } from "antd";
 import * as uuid from "uuid";
-import reqwest from "reqwest";
+import axios from "axios";
 import moment from "moment-timezone";
 import { BACK_SYSTEM_URL } from "../../../config/config.json";
 
@@ -89,7 +89,7 @@ export default class Trade extends Component {
 
     handleOk() {
         let _this = this;
-        reqwest({
+        axios({
             url: BACK_SYSTEM_URL + "/v1/trade",
             method: "put",
             data: {
@@ -147,16 +147,22 @@ export default class Trade extends Component {
         })
 
         let { current, pageSize } = this.state.pagination;
-        reqwest({
+
+        let options = {
             url: BACK_SYSTEM_URL + "/v1/trade",
             method: "get",
             data: {
                 page: current - 1,
                 limit: pageSize,
                 status
-            }
+            },
+            responseType: "json"
+        };
+
+        axios.get(options.url, {
+            params: options.data
         }).then((resp) => {
-            // console.log(resp);
+            resp = resp.data;
             if (resp.code != 0) {
                 return
             }
@@ -169,14 +175,14 @@ export default class Trade extends Component {
                     current,
                     pageSize
                 }
-            })
-        }, (err, msg) => {
+            });
+        }).catch((err, msg) => {
             console.log(err, msg);
-        }).always((resp) => {
+        }).finally(() => {
             _this.setState({
                 loading: false
             })
-        });
+        })
     }
 
     fetchDefault() {
