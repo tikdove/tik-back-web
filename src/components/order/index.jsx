@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-07 13:16:44
+ * @Last Modified time: 2018-06-07 14:37:59
  * @content: 
  */
 
@@ -11,8 +11,8 @@ import { Button, Table, Modal } from "antd";
 import * as uuid from "uuid";
 import axios from "axios";
 import moment from "moment-timezone";
-import { BACK_SYSTEM_URL } from "../../../config/config";
-
+import config, { BACK_SYSTEM_URL } from "../../../config/config";
+console.log("wwwwwwwwwwwwwwwwww ", BACK_SYSTEM_URL, config)
 
 const columns = [{
     title: 'order_ID',
