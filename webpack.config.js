@@ -4,7 +4,7 @@ const cleanWebpackPlugin = require("clean-webpack-plugin");
 const uglifyJsPlugin = require("uglifyjs-webpack-plugin");
 let conf = require('dotenv').load()
 const webpack = require("webpack");
-console.log(1111111111, conf);
+
 module.exports = {
     entry: ["./src/index.jsx"],
     /* entry: {
@@ -26,7 +26,7 @@ module.exports = {
         new webpack.DefinePlugin({
             BACK_SYSTEM_URL: JSON.stringify(process.env.BACK_SYSTEM_URL)
         }),
-        // new uglifyJsPlugin()
+        new uglifyJsPlugin()
     ],
     devtool: "inline-source-map",
     // mode: "production",
