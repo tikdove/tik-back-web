@@ -93,20 +93,20 @@ export default class Trade extends Component {
             }
         }
 
-        let keys = ["fetch", "fetchCreate", "fetchBuyConfrim", "fetchDone", "fetchInvalid", "fetchAll", "paginationChange", "handleOk", "handleCancel"];
+        let keys = ["fetch", "fetchCreate", "fetchBuyConfrim", "fetchDone", "fetchInvalid", "fetchAll", "paginationChange", "handleOk", "handleCancel", "orderConfirm", "handleInvaild"];
         for (let key of keys) {
             this[key] = this[key].bind(this);
         }
     }
 
-    handleOk() {
+    orderConfirm(status) {
         let _this = this;
         axios({
             url: BACK_SYSTEM_URL + "/v1/order",
             method: "put",
             data: {
                 orderId: this.state.dialog.record._id,
-                qty: this.state.dialog.record.qty
+                status
             }
         }).then((result) => {
             result = result.data;
@@ -126,6 +126,12 @@ export default class Trade extends Component {
         }, (err, msg) => {
             console.log(err, msg);
         })
+    }
+    handleInvaild() {
+        this.orderConfirm(4);
+    }
+    handleOk() {
+        this.orderConfirm(3);
     }
     handleCancel() {
         let dialog = this.state.dialog;
@@ -279,6 +285,7 @@ export default class Trade extends Component {
                     visible={this.state.dialog.visible}
                     onOk={this.handleOk}
                     onCancel={this.handleCancel}
+                    okText="交易确认"
                 >
 
                     <h3>订单信息</h3>
@@ -301,9 +308,11 @@ export default class Trade extends Component {
                         <br />
                     </p>
                     <hr />
-                    <p>1.请确认收到该用户打款。</p>
+                    <p>1.请核对用户打款数额。数额正确点击“交易确认”，否则点击“交易无效”</p>
                     <p>2.请打款至卖方支付宝账号。</p>
-                    <h4>点击ok后，买方即在系统中增加相应资产。</h4>
+                    <hr />
+                    <Button type="danger" onClick={this.handleInvaild} style={{ "float": "right" }}>交易无效</Button>
+                    <div style={{ "clear": "both" }}></div>
                 </Modal>
             </section>
         )
