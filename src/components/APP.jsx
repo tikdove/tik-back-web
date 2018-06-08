@@ -2,70 +2,70 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:37:42 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-07 19:09:53
+ * @Last Modified time: 2018-06-08 18:12:16
  * @content: 
  */
 
 import React, { Component } from "react";
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, Redirect } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 const { Header, Sider, Content } = Layout;
-import Trade from "./trade/index.jsx";
-import Order from "./order/index.jsx";
+
+class Trade extends Component {
+    render() {
+        return (
+            <h3>
+                Trade Trade.
+            </h3>
+        );
+    }
+}
+
+class Order extends Component {
+    render() {
+        return (
+            <h3>
+                Order Order.
+            </h3>
+        );
+    }
+}
 
 export default class APP extends Component {
     constructor() {
         super();
-        this.state = {
-            collapsed: false
-        };
 
-        this.toggle = this.toggle.bind(this);
     }
 
-    toggle() {
-        this.setState({
-            collapsed: !this.state.collapsed,
-        });
-    }
+    componentWillMount() {
+        console.log("here");
+        alert(1);
 
-    componentDidMount() {
+
+        let token = sessionStorage.getItem("token");
+        console.log(123, "token ", token);
+        if (!token) {
+            location.hash = "/login";
+        }
     }
 
     render() {
-
-        let contentStyle = { margin: '24px 16px', padding: 24, background: '#fff', minHeight: window["innerHeight"] - 48 };
-
         return (
             <Router>
                 <Layout>
-                    <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-                        <div className="logo" />
-                        <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
-                            <Menu.Item key="1">
-                                <Icon type="user" />
-                                <span>
-                                    <Link to="/">
-                                        卖单列表
-                                    </Link>
-                                </span>
-                            </Menu.Item>
-                            <Menu.Item key="2">
-                                <Icon type="video-camera" />
-                                <span>
-                                    <Link to="/order">
-                                        买单列表
-                                    </Link>
-                                </span>
-                            </Menu.Item>
-                        </Menu>
-                    </Sider>
-                    <Layout>
-                        <Content style={contentStyle}>
-                            <Route exact path="/" component={Trade} />
-                            <Route path="/order" component={Order} />
-                        </Content>
-                    </Layout>
+                    <div>
+                        <Link to="/app">
+                            卖单列表
+                        </Link>
+                        <hr />
+                        <Link to="/app/order">
+                            买单列表
+                        </Link>
+                    </div>
+                    <section>
+                        <Route exact path="/app" component={Trade} />
+                        <Route path="/app/order" component={Order} />
+                    </section>
                 </Layout>
             </Router>
         );

@@ -38,6 +38,7 @@
     "moment": "^2.22.2",
     "moment-timezone": "^0.5.17",
     "normalize.css": "^8.0.0",
+    "particles.js": "^2.0.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-router": "^4.2.0",
