@@ -10,7 +10,12 @@ body{
     min-width: 800px;
 }
 
-
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
 
 .content{
     width: 1200px;

@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-11 13:33:06 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-11 13:34:11
+ * @Last Modified time: 2018-06-11 14:36:27
  * @content: 
  */
 
@@ -42,7 +42,9 @@ export default class MainSider extends Component {
                     <Menu.Item key="3">
                         <Icon type="user" />
                         <span className="nav-text">
-                            用户资产管理
+                            <Link to="/main/userassets">
+                                用户资产管理
+                            </Link>
                         </span>
                     </Menu.Item>
                 </Menu>

@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-11 10:28:50 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-11 13:38:43
+ * @Last Modified time: 2018-06-11 14:35:36
  * @content: 
  */
 
@@ -13,6 +13,7 @@ const { Header, Sider, Content } = Layout;
 import Trade from "../trade/index.jsx";
 import Order from "../order/index.jsx";
 import MainSider from "./side.jsx";
+import UserAssets from "../userAssets/index.jsx";
 
 export default class Main extends Component {
     constructor() {
@@ -51,6 +52,7 @@ export default class Main extends Component {
                             <div style={this.state.contentStyle}>
                                 <Route exact path="/main" component={Trade} />
                                 <Route path="/main/order" component={Order} />
+                                <Route path="/main/userassets" component={UserAssets} />
                             </div>
                         </Content>
                     </Layout>
