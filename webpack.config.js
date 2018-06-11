@@ -4,9 +4,11 @@ const cleanWebpackPlugin = require("clean-webpack-plugin");
 const uglifyJsPlugin = require("uglifyjs-webpack-plugin");
 let conf = require('dotenv').load()
 const webpack = require("webpack");
+require("babel-core/register");
+require("babel-polyfill");
 
 module.exports = {
-    entry: ["./src/index.jsx"],
+    entry: ["babel-polyfill", "./src/index.jsx"],
     /* entry: {
         index: "./src/js/index.js",
         two: "./src/js/two.js"
@@ -53,28 +55,18 @@ module.exports = {
                 ]
             },
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ["react"]
-                    }
-                }
-            },
-            {
                 test: /\.(html|ico)$/,
                 use: [
                     'html-loader'
                 ]
             },
             {
-                test: /.jsx?$/,
+                test: /\.(jsx|js)?$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: "babel-loader",
+                    loader: 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0',
                     options: {
-                        presets: ["es2015", "react"]
+                        presets: ["es2015", "react", "stage-0"]
                     }
                 }
             }
