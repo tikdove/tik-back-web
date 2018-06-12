@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-11 14:32:39 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-11 18:18:49
+ * @Last Modified time: 2018-06-12 15:36:46
  * @content: 
  */
 
@@ -10,7 +10,7 @@ import React, { Component } from "react";
 import { Button, Table, Modal, Input, Icon } from "antd";
 import * as uuid from "uuid";
 import axios from "axios";
-import moment from "moment-timezone";
+import moment from "moment";
 import config, { BACK_SYSTEM_URL } from "../../../config/config";
 const Search = Input.Search;
 import "./index.css";
@@ -35,7 +35,7 @@ const columns = [{
     title: '创建日期',
     dataIndex: 'createdAt',
     render(text, record, index) {
-        record.datetime = moment(text).tz("America/New_York").format("YYYY-MM-DD hh:mm:ss");
+        record.datetime = moment(text).format("YYYY-MM-DD HH:mm:ss");
         return record.datetime;
     }
 }];
