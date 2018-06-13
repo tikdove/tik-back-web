@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-12 15:35:43
+ * @Last Modified time: 2018-06-13 10:35:36
  * @content: 
  */
 
@@ -24,7 +24,7 @@ const columns = [{
     title: '总数',
     dataIndex: 'totalSuply',
 }, {
-    title: '单价/¥',
+    title: '单价($)',
     dataIndex: 'price',
 }, {
     title: '剩余',
@@ -274,7 +274,7 @@ export default class Trade extends Component {
                         <br />
                         日期: <strong>{this.state.dialog.record.datetime}</strong>
                         <br />
-                        单价: <strong>{this.state.dialog.record.price} ¥/tik</strong>
+                        单价: <strong>{this.state.dialog.record.price} $/tik</strong>
                     </p>
                     <hr />
                     <p>1.请检查该用户在同一时段是否存在多次相同卖出记录。</p>

@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-04 19:54:08 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-12 15:36:18
+ * @Last Modified time: 2018-06-13 11:35:11
  * @content: 
  */
 
@@ -17,8 +17,8 @@ const columns = [{
     title: 'order_ID',
     dataIndex: '_id',
 }, {
-    title: '买方用户uid',
-    dataIndex: 'uid',
+    title: '用户mobile',
+    dataIndex: 'userMobile',
 }, {
     title: '购入品种名称',
     dataIndex: 'tradeInfo.periodName',
@@ -26,16 +26,22 @@ const columns = [{
     title: '买入数量',
     dataIndex: 'qty',
 }, {
-    title: '购入单价/¥',
+    title: '购入单价($)',
     dataIndex: 'tradeInfo.price',
 }, {
-    title: '金额',
+    title: '金额($ / ¥)',
     render(text, record, index) {
         if (!record.tradeInfo) {
             record.tradeInfo = JSON.parse(record.tradeSnapshot);
         }
-        record.money = Math.round(record.qty * record.tradeInfo.price * 100) / 100;
-        return record.money;
+        record.money = Math.round(record.qty * record.tradeInfo.price * 1000) / 1000;
+        let rate = 0.15625
+        if (record.rate) {
+            rate = record.rate.USD;
+        }
+        record.CNY = Math.round(record.money / rate * 100) / 100;
+
+        return `${record.money}$ / ${record.CNY}¥`;
     }
 }, {
     title: '创建日期',
@@ -141,6 +147,27 @@ export default class Trade extends Component {
         })
     }
 
+    getUserInfo = (item) => {
+        return new Promise((resolve, reject) => {
+            axios({
+                url: BACK_SYSTEM_URL + "/v1/user/" + item.uid,
+                method: "get",
+                responseType: "json"
+            }).then((resp) => {
+                let result = resp.data;
+                if (result.code != 0) {
+                    return item.userMobile = item.uid;
+                }
+
+                item.userMobile = result.data.auth.sms.mobile;
+            }).catch((err) => {
+                console.log(err);
+            }).finally(() => {
+                resolve();
+            });
+        })
+    }
+
     paginationChange(pagination, filters, sorter) {
         // console.log(pagination, filters, sorter);
         this.setState({
@@ -182,12 +209,20 @@ export default class Trade extends Component {
                 limit: pageSize,
                 status
             }
-        }).then((resp) => {
+        }).then(async (resp) => {
             console.log(resp);
             resp = resp.data;
             if (resp.code != 0) {
                 return
             }
+
+            let ps = [];
+            for (let item of resp.data.rows) {
+                ps.push(this.getUserInfo(item));
+            }
+
+            await Promise.all(ps);
+
             _this.setState({
                 data: resp.data.rows,
                 loading: false,
@@ -292,11 +327,13 @@ export default class Trade extends Component {
                     <p>
                         日期: <strong>{this.state.dialog.record.datetime}</strong>
                         <br />
+                        种类: <strong>{this.state.dialog.record.tradeInfo.periodName}</strong>
+                        <br />
                         买入总量: <strong>{this.state.dialog.record.qty}</strong>
                         <br />
-                        买入单价: <strong>{this.state.dialog.record.tradeInfo.price} ¥/tik</strong>
+                        买入单价: <strong>{this.state.dialog.record.tradeInfo.price}$/tik</strong>
                         <br />
-                        应付金额: <strong>{this.state.dialog.record.money}</strong>
+                        应付金额: {this.state.dialog.record.money}$ ≈ <strong>{this.state.dialog.record.CNY}¥</strong>
                     </p>
                     <h3>
                         卖家信息

@@ -2,7 +2,7 @@
  * @Author: Mr.He 
  * @Date: 2018-06-11 14:32:39 
  * @Last Modified by: Mr.He
- * @Last Modified time: 2018-06-12 15:36:46
+ * @Last Modified time: 2018-06-13 11:35:30
  * @content: 
  */
 
@@ -14,6 +14,7 @@ import moment from "moment";
 import config, { BACK_SYSTEM_URL } from "../../../config/config";
 const Search = Input.Search;
 import "./index.css";
+// import { getUserInfo } from "../../utils/common";
 
 const columns = [{
     title: 'mobile/uid',
