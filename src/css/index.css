@@ -16,7 +16,9 @@ body{
 .fr{
     float: right;
 }
-
+.nav-text a{
+    color: #fff;
+}
 .content{
     width: 1200px;
     margin: auto;
